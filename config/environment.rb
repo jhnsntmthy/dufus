@@ -16,10 +16,11 @@ Rails::Initializer.run do |config|
   # -- all .rb files in that directory are automatically loaded.
   # See Rails::Configuration for more options.
 
-  # config.gem "rack-oauth"
+  config.gem "rack-oauth"
 
-  # config.middleware.use Rack::OAuth, :site => 'http://twitterr.com',
-                                     # :key => '123', :secret => '123'
+  require 'rack-oauth'
+  config.middleware.use Rack::OAuth, :site => 'http://twitterr.com',
+                                     :key => '123', :secret => '123'
 
   # Skip frameworks you're not going to use. To use Rails without a database
   # you must remove the Active Record framework.

@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>"Master May I?"</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Namespace List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'><h1>Master May I?</h1>
+<h3>Clean, simple and flexible model based authorization designed to work with AuthLogic and InheritedResources.</h3>
+<h3>If these docs looks all wanky, then be sure you&#8217;re viewing them on the rdoc.info site: http://rdoc.info/projects/tsaleh/master-may-i</h3>
+<h2>Overview</h2>
+<p>
+Master May I is not an Access Control List system. In fact, it has
+absolutely no opinions about how you structure your underlying business
+rules. All it does is gives you a consistent and flexible pattern for
+accessing those rules.
+</p>
+<p>
+There are two main components:
+</p>
+<h3>The Model Layer</h3>
+<p>
+<tt><a href="MasterMayI.html" title="Master May I">Master May I</a></tt> adds query methods to all your models, which can
+be used to determine who&#8217;s allowed to do what.
+<tt><a href="MasterMayI/ActiveRecordExtensions.html" title="Learn more.">Learn more.</a></tt>
+</p>
+<ul>
+<li><tt><a href="MasterMayI/ActiveRecordExtensions/ClassMethods.html#creatable_by%3F-instance_method" title="<tt>Model.creatable_by?(user)</tt>"><tt>Model.creatable_by?(user)</tt></a></tt> and
+<tt><a href="MasterMayI/ActiveRecordExtensions/ClassMethods.html#creatable%3F-instance_method" title="<tt>Model.creatable?</tt>"><tt>Model.creatable?</tt></a></tt>
+
+</li>
+<li><tt><a href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#readable_by%3F-instance_method" title="<tt>@model.readable_by?(user)</tt>"><tt>@model.readable_by?(user)</tt></a></tt> and
+<tt><a href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#readable%3F-instance_method" title="<tt>@model.readable?</tt>"><tt>@model.readable?</tt></a></tt>
+
+</li>
+<li><tt><a href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#editable_by%3F-instance_method" title="<tt>@model.editable_by?(user)</tt>"><tt>@model.editable_by?(user)</tt></a></tt> and
+<tt><a href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#editable%3F-instance_method" title="<tt>@model.editable?</tt>"><tt>@model.editable?</tt></a></tt>
+
+</li>
+<li><tt><a href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#destroyable_by%3F-instance_method" title="<tt>@model.destroyable_by?(user)</tt>"><tt>@model.destroyable_by?(user)</tt></a></tt> and
+<tt><a href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#destroyable%3F-instance_method" title="<tt>@model.destroyable?</tt>"><tt>@model.destroyable?</tt></a></tt>
+
+</li>
+</ul>
+<p>
+These are just methods (that default to always returning true), so
+customizing the rules is as easy as overriding the methods:
+</p>
+<pre class="code">
+  <span class='class class kw'>class</span> <span class='Note constant id'>Note</span> <span class='lt op'>&lt;</span> <span class='ActiveRecord constant id'>ActiveRecord</span><span class='colon2 op'>::</span><span class='Base constant id'>Base</span>
+    <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='creatable_by? fid id'>creatable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
+      <span class='user identifier id'>user</span> <span class='and and kw'>and</span> <span class='user identifier id'>user</span><span class='dot token'>.</span><span class='administrator? fid id'>administrator?</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+</pre>
+<p>
+If you call
+<tt><a href="MasterMayI/ActiveRecordExtensions/ClassMethods.html#records_creating_user-instance_method" title="<tt>records_creating_user</tt>"><tt>records_creating_user</tt></a></tt> in your model, then the user from the
+Authlogic UserSession is automatically stored whenever a record is created.
+<tt><a href="MasterMayI/ActiveRecordExtensions/ClassMethods.html#records_creating_user-instance_method" title="Learn more.">Learn more.</a></tt>
+</p>
+<pre class="code">
+  <span class='class class kw'>class</span> <span class='Note constant id'>Note</span> <span class='lt op'>&lt;</span> <span class='ActiveRecord constant id'>ActiveRecord</span><span class='colon2 op'>::</span><span class='Base constant id'>Base</span>
+    <span class='records_creating_user identifier id'>records_creating_user</span>
+
+    <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='creatable_by? fid id'>creatable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
+      <span class='user identifier id'>user</span> <span class='and and kw'>and</span> <span class='created_by? fid id'>created_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+</pre>
+<h3>The Controller Layer</h3>
+<p>
+If you include <tt><a href="MasterMayI/ControllerExtensions.html" title="MasterMayI::ControllerExtensions">MasterMayI::ControllerExtensions</a></tt> in your
+ApplicationController, MasterMayI adds a few utility methods to your
+ApplicationController:
+</p>
+<ul>
+<li><tt><a href="MasterMayI/ControllerExtensions.html#current_user-instance_method" title="<tt>current_user</tt>"><tt>current_user</tt></a></tt>
+
+</li>
+<li><tt><a href="MasterMayI/ControllerExtensions.html#logged_in%3F-instance_method" title="<tt>logged_in?</tt>"><tt>logged_in?</tt></a></tt>
+
+</li>
+<li><tt><a href="MasterMayI/ControllerExtensions.html#require_user-instance_method" title="<tt>require_user</tt>"><tt>require_user</tt></a></tt>
+
+</li>
+<li><tt><a href="MasterMayI/ControllerExtensions.html#deny_access-instance_method" title="<tt>deny_access</tt>"><tt>deny_access</tt></a></tt>
+
+</li>
+<li><tt><a href="MasterMayI/ControllerExtensions.html#store_location-instance_method" title="<tt>store_location</tt>"><tt>store_location</tt></a></tt>
+
+</li>
+<li>{MasterMayI::ControllerExtensions#redirect_back_or <tt>redirect_back_or
+url</tt>}
+
+</li>
+</ul>
+<p>
+MasterMayI will also include the
+<tt><a href="MasterMayI/ControllerExtensions/ClassMethods.html#protects_restful_actions-instance_method" title="<tt>protects_restful_actions</tt>"><tt>protects_restful_actions</tt></a></tt> controller class method, which
+integrates with InheritedResources in order to automatically check with the
+model in a set of before filters.
+<tt><a href="MasterMayI/ControllerExtensions/ClassMethods.html#protects_restful_actions-instance_method" title="Learn more.">Learn more.</a></tt>
+</p>
+<pre class="code">
+  <span class='class class kw'>class</span> <span class='ApplicationController constant id'>ApplicationController</span> <span class='lt op'>&lt;</span> <span class='ActionController constant id'>ActionController</span><span class='colon2 op'>::</span><span class='Base constant id'>Base</span>
+    <span class='include identifier id'>include</span> <span class='MasterMayI constant id'>MasterMayI</span><span class='colon2 op'>::</span><span class='ControllerExtensions constant id'>ControllerExtensions</span>
+    <span class='dot3 op'>...</span>
+  <span class='end end kw'>end</span>
+
+  <span class='class class kw'>class</span> <span class='NotesController constant id'>NotesController</span> <span class='lt op'>&lt;</span> <span class='InheritedResources constant id'>InheritedResources</span><span class='colon2 op'>::</span><span class='Base constant id'>Base</span>
+    <span class='protects_restful_actions identifier id'>protects_restful_actions</span>
+  <span class='end end kw'>end</span>
+</pre>
+<p>
+<tt><a href="MasterMayI/ControllerExtensions.html" title="Learn more.">Learn more.</a></tt>
+</p>
+<h2>Testing with Shoulda</h2>
+<p>
+Master May I comes with a strong set of Shoulda macros:
+</p>
+<p>
+&#8230;for your <tt><a href="ActiveSupport/TestCase.html" title="unit tests">unit tests</a></tt>:
+</p>
+<pre class="code">
+  <span class='class class kw'>class</span> <span class='NoteTest constant id'>NoteTest</span> <span class='lt op'>&lt;</span> <span class='ActiveSupport constant id'>ActiveSupport</span><span class='colon2 op'>::</span><span class='TestCase constant id'>TestCase</span>
+    <span class='setup identifier id'>setup</span> <span class='symbol val'>:activate_authlogic</span>
+
+    <span class='should_record_creating_user identifier id'>should_record_creating_user</span> <span class='symbol val'>:as</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;user&quot;</span>
+
+    <span class='should_be_creatable_by identifier id'>should_be_creatable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;boy named sue-create&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;sue-create&quot;</span><span class='rparen token'>)</span>  <span class='rbrace token'>}</span>
+    <span class='should_not_be_creatable_by identifier id'>should_not_be_creatable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;everyone&quot;</span><span class='rparen token'>)</span>         <span class='lbrace token'>{</span> <span class='nil nil kw'>nil</span> <span class='rbrace token'>}</span>
+
+    <span class='context identifier id'>context</span> <span class='string val'>&quot;a note&quot;</span> <span class='do do kw'>do</span>
+      <span class='setup identifier id'>setup</span> <span class='lbrace token'>{</span> <span class='@note ivar id'>@note</span> <span class='assign token'>=</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:note</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+      <span class='subject identifier id'>subject</span> <span class='lbrace token'>{</span> <span class='@note ivar id'>@note</span> <span class='rbrace token'>}</span>
+
+      <span class='should_be_readable_by identifier id'>should_be_readable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;boy named sue-read&quot;</span><span class='rparen token'>)</span>       <span class='lbrace token'>{</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;sue-read&quot;</span><span class='rparen token'>)</span>    <span class='rbrace token'>}</span>
+      <span class='should_be_editable_by identifier id'>should_be_editable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;boy named sue-edit&quot;</span><span class='rparen token'>)</span>       <span class='lbrace token'>{</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;sue-edit&quot;</span><span class='rparen token'>)</span>    <span class='rbrace token'>}</span>
+      <span class='should_be_destroyable_by identifier id'>should_be_destroyable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;boy named sue-destroy&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;sue-destroy&quot;</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+
+      <span class='should_not_be_readable_by identifier id'>should_not_be_readable_by</span><span class='lparen token'>(</span>   <span class='string val'>&quot;everyone&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='nil nil kw'>nil</span> <span class='rbrace token'>}</span>
+      <span class='should_not_be_editable_by identifier id'>should_not_be_editable_by</span><span class='lparen token'>(</span>   <span class='string val'>&quot;everyone&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='nil nil kw'>nil</span> <span class='rbrace token'>}</span>
+      <span class='should_not_be_destroyable_by identifier id'>should_not_be_destroyable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;everyone&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='nil nil kw'>nil</span> <span class='rbrace token'>}</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+</pre>
+<p>
+&#8230;and your <tt><a href="ActionController/TestCase.html" title="functional tests">functional tests</a></tt>:
+</p>
+<pre class="code">
+  <span class='class class kw'>class</span> <span class='NotesControllerTest constant id'>NotesControllerTest</span> <span class='lt op'>&lt;</span> <span class='ActionController constant id'>ActionController</span><span class='colon2 op'>::</span><span class='TestCase constant id'>TestCase</span>
+    <span class='setup identifier id'>setup</span> <span class='symbol val'>:activate_authlogic</span>
+
+    <span class='as_a_logged_in_user identifier id'>as_a_logged_in_user</span> <span class='do do kw'>do</span>
+      <span class='who_can_manage identifier id'>who_can_manage</span> <span class='symbol val'>:notes</span> <span class='do do kw'>do</span>
+        <span class='context identifier id'>context</span> <span class='string val'>&quot;on GET to /notes/new&quot;</span> <span class='do do kw'>do</span>
+          <span class='setup identifier id'>setup</span> <span class='lbrace token'>{</span> <span class='get identifier id'>get</span> <span class='symbol val'>:new</span> <span class='rbrace token'>}</span>
+          <span class='should_not_set_the_flash identifier id'>should_not_set_the_flash</span>
+          <span class='should_render_template identifier id'>should_render_template</span> <span class='symbol val'>:new</span>
+        <span class='end end kw'>end</span>
+        <span class='dot3 op'>...</span>
+</pre>
+<h2>Installation</h2>
+<p>
+Master May I is hosted on gemcutter, so installation is as easy as:
+</p>
+<pre class="code">
+  <span class='sudo identifier id'>sudo</span> <span class='gem identifier id'>gem</span> <span class='install identifier id'>install</span> <span class='master_may_i identifier id'>master_may_i</span>
+</pre>
+<p>
+It relies heavily on Authlogic, and the controller module uses the
+<tt>resource</tt> and <tt>resource_class</tt> methods from
+InheritedResources. Finally, the before filters expect there to be the a
+url helper named login_url:
+</p>
+<pre class="code">
+  <span class='map identifier id'>map</span><span class='dot token'>.</span><span class='login identifier id'>login</span> <span class='string val'>&quot;/login&quot;</span><span class='comma token'>,</span> <span class='symbol val'>:controller</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:user_session</span><span class='comma token'>,</span> <span class='symbol val'>:action</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:new</span>
+</pre>
+<h2>Copyright</h2>
+<p>
+Copyright &#169; 2009 Tammer Saleh. See LICENSE for details.
+</p>
+</div></div>
+    
+    <div id="footer">
+  Generated on Fri Dec  4 10:46:37 2009 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.4.0 (ruby-1.8.6).
+</div>
+
+  </body>
+</html>

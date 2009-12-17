@@ -1,0 +1,29 @@
+## MAC OS
+.DS_Store
+
+## TEXTMATE
+*.tmproj
+tmtags
+
+## EMACS
+*~
+\#*
+.\#*
+
+## VIM
+*.swp
+
+## PROJECT::GENERAL
+coverage
+rdoc
+pkg
+
+## PROJECT::SPECIFIC
+test/rails_root/log/*
+test/rails_root/tmp/**/*
+test/rails_root/db/schema.rb
+test/rails_root/db/*.sqlite3
+test/rails_root/public/system
+
+!.keep
+

@@ -1,0 +1,12 @@
+History.txt
+Manifest.txt
+README.rdoc
+Rakefile
+lib/expose_model.rb
+lib/expose_model/action_view.rb
+lib/expose_model/expose_model.rb
+script/console
+script/destroy
+script/generate
+test/test_expose_model.rb
+test/test_helper.rb

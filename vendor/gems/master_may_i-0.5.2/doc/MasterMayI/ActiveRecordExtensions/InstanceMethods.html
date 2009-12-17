@@ -1,0 +1,592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>Module: MasterMayI::ActiveRecordExtensions::InstanceMethods</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (I)</a> &raquo; 
+    <a href="../../MasterMayI.html" title="MasterMayI">MasterMayI</a> &raquo; <a href="../ActiveRecordExtensions.html" title="ActiveRecordExtensions">ActiveRecordExtensions</a>
+     &raquo; 
+    <span class="title">InstanceMethods</span>
+  
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Namespace List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: MasterMayI::ActiveRecordExtensions::InstanceMethods 
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/master_may_i/active_record_extensions.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+  <h2>Method Summary</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#destroyable%3F-instance_method" title="#destroyable? (instance method)">- (Object) <strong>destroyable?</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Should the current user be able to destroy this record? Delegates to
+<tt>destroyable_by?</tt>.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#destroyable_by%3F-instance_method" title="#destroyable_by? (instance method)">- (Object) <strong>destroyable_by?</strong>(user) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Should the given user be able to destroy this record? This method should be
+redefined inside the model.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#editable%3F-instance_method" title="#editable? (instance method)">- (Object) <strong>editable?</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Should the current user be able to edit this record? Delegates to
+<tt>editable_by?</tt>.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#editable_by%3F-instance_method" title="#editable_by? (instance method)">- (Object) <strong>editable_by?</strong>(user) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Should the given user be able to edit this record? This method should be
+redefined inside the model.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#readable%3F-instance_method" title="#readable? (instance method)">- (Object) <strong>readable?</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Should the current user be able to read this record? Delegates to
+<tt>readable_by?</tt>.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#readable_by%3F-instance_method" title="#readable_by? (instance method)">- (Object) <strong>readable_by?</strong>(user) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Should the given user be able to read this record? This method should be
+redefined inside the model.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#user_from_session-instance_method" title="#user_from_session (instance method)">- (Object) <strong>user_from_session</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns the currently logged in user via the Authlogic UserSession class.
+
+</span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  <div id="method_details">
+    <h2>Method Details</h2>
+    
+      <div class="method_details first">
+  <p class="signature first" id="destroyable?-instance_method">
+  
+    - (<tt>Object</tt>) <strong>destroyable?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Should the current user be able to destroy this record? Delegates to
+<tt>destroyable_by?</tt>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+148
+149
+150</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 148</span>
+
+<span class='def def kw'>def</span> <span class='destroyable? fid id'>destroyable?</span>
+  <span class='destroyable_by? fid id'>destroyable_by?</span><span class='lparen token'>(</span><span class='user_from_session identifier id'>user_from_session</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="destroyable_by?-instance_method">
+  
+    - (<tt>Object</tt>) <strong>destroyable_by?</strong>(user) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Should the given user be able to destroy this record? This method should be
+redefined inside the model.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>User</tt>, <tt>nil</tt>)</span>
+      
+      
+        <span class='name'>user</span>
+      
+      
+      
+        &mdash;
+        
+Either a user record, or nil for visitors.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../../ActiveSupport/TestCase.html#should_be_destroyable_by-class_method" title="should_be_destroyable_by">should_be_destroyable_by</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+158
+159
+160</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 158</span>
+
+<span class='def def kw'>def</span> <span class='destroyable_by? fid id'>destroyable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
+  <span class='true true kw'>true</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="editable?-instance_method">
+  
+    - (<tt>Object</tt>) <strong>editable?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Should the current user be able to edit this record? Delegates to
+<tt>editable_by?</tt>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+133
+134
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 133</span>
+
+<span class='def def kw'>def</span> <span class='editable? fid id'>editable?</span>
+  <span class='editable_by? fid id'>editable_by?</span><span class='lparen token'>(</span><span class='user_from_session identifier id'>user_from_session</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="editable_by?-instance_method">
+  
+    - (<tt>Object</tt>) <strong>editable_by?</strong>(user) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Should the given user be able to edit this record? This method should be
+redefined inside the model.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>User</tt>, <tt>nil</tt>)</span>
+      
+      
+        <span class='name'>user</span>
+      
+      
+      
+        &mdash;
+        
+Either a user record, or nil for visitors.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../../ActiveSupport/TestCase.html#should_be_editable_by-class_method" title="should_be_editable_by">should_be_editable_by</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143
+144
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 143</span>
+
+<span class='def def kw'>def</span> <span class='editable_by? fid id'>editable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
+  <span class='true true kw'>true</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="readable?-instance_method">
+  
+    - (<tt>Object</tt>) <strong>readable?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Should the current user be able to read this record? Delegates to
+<tt>readable_by?</tt>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 118</span>
+
+<span class='def def kw'>def</span> <span class='readable? fid id'>readable?</span>
+  <span class='readable_by? fid id'>readable_by?</span><span class='lparen token'>(</span><span class='user_from_session identifier id'>user_from_session</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="readable_by?-instance_method">
+  
+    - (<tt>Object</tt>) <strong>readable_by?</strong>(user) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Should the given user be able to read this record? This method should be
+redefined inside the model.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>User</tt>, <tt>nil</tt>)</span>
+      
+      
+        <span class='name'>user</span>
+      
+      
+      
+        &mdash;
+        
+Either a user record, or nil for visitors.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../../ActiveSupport/TestCase.html#should_be_readable_by-class_method" title="should_be_readable_by">should_be_readable_by</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+128
+129
+130</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 128</span>
+
+<span class='def def kw'>def</span> <span class='readable_by? fid id'>readable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
+  <span class='true true kw'>true</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="user_from_session-instance_method">
+  
+    - (<tt>Object</tt>) <strong>user_from_session</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the currently logged in user via the Authlogic UserSession class.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="ClassMethods.html#user_from_session-instance_method" title="user_from_session">user_from_session</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+164
+165
+166</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 164</span>
+
+<span class='def def kw'>def</span> <span class='user_from_session identifier id'>user_from_session</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='user_from_session identifier id'>user_from_session</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Fri Dec  4 10:46:38 2009 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.4.0 (ruby-1.8.6).
+</div>
+
+  </body>
+</html>

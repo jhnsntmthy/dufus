@@ -1,0 +1,52 @@
+= Rack::OAuth
+
+Rack::OAuth is a Rack middleware for easily integrating OAuth into your Ruby web applications.
+
+== Installation
+
+  $ gem sources -a http://gems.github.com
+  $ sudo gem install remi-rack-oauth
+
+Rack::OAuth requires the rack and oauth gems (and json, although this can be overriden)
+
+  $ sudo gem install rack oauth json
+
+== Usage
+
+To quickly see how to use this, you might want to check out the screencast at http://remi.org
+
+You can also view the RDoc at http://code.remi.org/rack-oauth
+
+  use Rack::OAuth, :key => 'abc', :secret => '123', :site => 'http://twitter.com'
+
+This will use all of the defaults:
+
+* visiting <tt>/oauth_login</tt> will setup an OAuth request and redirect the user to login to the OAuth provider
+* <tt>/oauth_complete</tt> is where we redirect to after OAuth authorization is complete
+* <tt>session[:oauth_user]</tt> will return a hash with the OAuth account information (if a user was authorized)
+
+There are a number of defaults that can be overridden.  Defaults can be viewed at http://code.remi.org/rack-oauth/classes/Rack/OAuth.html
+
+  use Rack::OAuth, :key          => 'abc', 
+                   :secret       => '123', 
+                   :site         => 'http://twitter.com',
+                   :login        => '/path_that_will_goto_oauth_providers_login',
+                   :redirect     => '/path_to_redirect_to_after_oauth_authorization',
+                   :session_key  => 'name_of_session_variable_to_store_oauth_user_info_in',
+                   :rack_session => 'name_of_rack_session_variable'
+
+The important thing to note is that, after you redirect to /oauth_login and the OAuth provider 
+redirects back to your web application at /oauth_complete, you can gain access to the user's 
+access token.  This is what lets you make requests to Twitter and whatnot to post tweets or 
+merely get the user's information.
+
+The easiest way to do this is to include the Rack::OAuth::Methods module in your ApplicationController, 
+if you're using Rails, or your helpers block, if you're using Sinatra or ... wherever.  Once you've done 
+that, you can just call #get_access_token to get the access token.  For example, if you want to get the 
+user's twitter profile information you can:
+
+  json = get_access_token.get('/account/verify_credentials.json').body
+
+=== Notes
+
+Rack::OAuth was created to work with Twitter OAuth and has, thus far, only been tested using Twitter's OAuth.  If this doesn't work for you for a different OAuth provider, please let me know!  Or, if you patch Rack::OAuth to support another provider, please send me a pull request with the patch.

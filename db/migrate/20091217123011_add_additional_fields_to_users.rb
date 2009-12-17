@@ -1,7 +1,5 @@
 class AddAdditionalFieldsToUsers < ActiveRecord::Migration
   def self.up
-    add_column :users, :openid_identifier, :string
-    add_column :users, :screen_name, :string
     add_column :users, :name, :string
     add_column :users, :location, :string
     add_column :users, :longitude, :string
@@ -10,9 +8,7 @@ class AddAdditionalFieldsToUsers < ActiveRecord::Migration
     add_column :users, :avatar_content_type, :string
     add_column :users, :avatar_file_size, :integer
     add_column :users, :avatar_updated_at, :datetime
-    add_index :users, :openid_identifier
-    add_index :users, :screen_name
-    
+        
   end
 
   def self.down
@@ -24,7 +20,5 @@ class AddAdditionalFieldsToUsers < ActiveRecord::Migration
     remove_column :users, :longitude
     remove_column :users, :location
     remove_column :users, :name
-    remove_column :users, :screen_name
-    remove_column :users, :openid_identifier
   end
 end

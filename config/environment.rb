@@ -33,6 +33,7 @@ Rails::Initializer.run do |config|
   config.gem 'newrelic_rpm'
   config.gem 'expose_model'
   config.gem 'will_paginate'
+  config.gem 'health_monitor', :source => "http://gemcutter.org"
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named

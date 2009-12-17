@@ -1,0 +1,109 @@
+--- !ruby/object:Gem::Specification 
+name: health_monitor
+version: !ruby/object:Gem::Version 
+  version: 0.1.2
+platform: ruby
+authors: 
+- Blythe Dunham
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-12-13 00:00:00 -05:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: activesupport
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "2.1"
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: actionpack
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "2.1"
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: mocha
+  type: :development
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: 0.9.8
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: thoughtbot-shoulda
+  type: :development
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0"
+    version: 
+description: 
+email: blythe@snowgiraffe.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- LICENSE
+- README.rdoc
+files: 
+- .gitignore
+- LICENSE
+- README.rdoc
+- Rakefile
+- VERSION
+- generators/health_monitor/health_monitor_generator.rb
+- generators/health_monitor/templates/_health_monitor.html.erb
+- generators/health_monitor/templates/controller.rb
+- health_monitor.gemspec
+- lib/health_monitor.rb
+- lib/health_monitor/built_in_checks.rb
+- lib/health_monitor/health_monitoring.rb
+- test/helper.rb
+- test/test_health_monitor.rb
+has_rdoc: true
+homepage: http://github.com/blythedunham/health_monitor
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --charset=UTF-8
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: 
+rubygems_version: 1.3.5
+signing_key: 
+specification_version: 3
+summary: Monitor all aspects of your applications health.
+test_files: 
+- test/helper.rb
+- test/test_health_monitor.rb

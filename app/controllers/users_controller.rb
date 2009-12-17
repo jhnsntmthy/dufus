@@ -29,7 +29,9 @@ class UsersController < ApplicationController
   
   def update
     @user = @current_user # makes our views "cleaner" and more consistent
+    logger.debug params[:user]
     if @user.update_attributes(params[:user])
+      logger.debug @user.inspect
       flash[:notice] = "Account updated!"
       redirect_to account_url
     else

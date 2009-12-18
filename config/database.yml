@@ -2,10 +2,10 @@
 #   gem install sqlite3-ruby (not necessary on OS X Leopard)
 
 development:
-  adapter: mysql
+  adapter: postgresql
   host: localhost
-  database: starter_development
-  username: root
+  database: starter_dev
+  username: postgres
   password: 
     
 # development:

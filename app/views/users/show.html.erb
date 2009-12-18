@@ -10,6 +10,10 @@
   <%=h @user.location %>
 </p>
 <p>
+	<b>Biography:</b>
+  <%= h @user.biography %>
+</p>
+<p>
   <b>Longitude:</b>
   <%=h @user.longitude %>
 </p>
@@ -17,7 +21,6 @@
   <b>Latitude:</b>
   <%=h @user.latitude %>
 </p>
-
 
 <p>
   <b>Login count:</b>
@@ -53,9 +56,4 @@
 <%= google_map :width => 300, :height => 150 %>
 <%= get_map @user.latitude, @user.longitude %>
 
-<%= link_to 'Edit', edit_account_path %>
 
-
-
-<%#= image_tag @user.avatar.url %>
-<%#= image_tag @user.avatar.url(:medium) %>

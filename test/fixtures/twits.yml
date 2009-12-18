@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  screen_name: MyString
+  location: MyString
+  latitude: 9.99
+  longitude: 9.99
+  profile_image_url: MyString
+  url: MyString
+  twitter_user_id: 1
+  time_zone: MyString
+  description: MyText
+  oauth_token: MyString
+  oauth_token_secret: MyString
+
+two:
+  name: MyString
+  screen_name: MyString
+  location: MyString
+  latitude: 9.99
+  longitude: 9.99
+  profile_image_url: MyString
+  url: MyString
+  twitter_user_id: 1
+  time_zone: MyString
+  description: MyText
+  oauth_token: MyString
+  oauth_token_secret: MyString

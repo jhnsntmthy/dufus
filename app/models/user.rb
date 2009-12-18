@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }
   has_many :posts
+  belongs_to :twit
   
   before_save :geolocate
   # R_0be80a3f0fbd12ff3422bd38a9584b92

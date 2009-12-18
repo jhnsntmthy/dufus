@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  message: MyString
+  location: MyString
+  latitude: 9.99
+  longitude: 9.99
+  twitter_status_id: 1
+  in_reply_to_user_id: 1
+  in_reply_to_screen_name: MyString
+  in_reply_to_status_id: 1
+  post_id: 1
+  profile_image_url: MyString
+  screen_name: MyString
+
+two:
+  message: MyString
+  location: MyString
+  latitude: 9.99
+  longitude: 9.99
+  twitter_status_id: 1
+  in_reply_to_user_id: 1
+  in_reply_to_screen_name: MyString
+  in_reply_to_status_id: 1
+  post_id: 1
+  profile_image_url: MyString
+  screen_name: MyString

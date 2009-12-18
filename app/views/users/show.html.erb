@@ -14,46 +14,9 @@
   <%= h @user.biography %>
 </p>
 <p>
-  <b>Longitude:</b>
-  <%=h @user.longitude %>
-</p>
-<p>
-  <b>Latitude:</b>
-  <%=h @user.latitude %>
-</p>
-
-<p>
-  <b>Login count:</b>
-  <%=h @user.login_count %>
-</p>
-
-<p>
-  <b>Last request at:</b>
-  <%=h @user.last_request_at %>
-</p>
-
-<p>
-  <b>Last login at:</b>
-  <%=h @user.last_login_at %>
-</p>
-
-<p>
-  <b>Current login at:</b>
-  <%=h @user.current_login_at %>
-</p>
-
-<p>
-  <b>Last login ip:</b>
-  <%=h @user.last_login_ip %>
-</p>
-
-<p>
-  <b>Current login ip:</b>
-  <%=h @user.current_login_ip %>
-</p>
 <%= include_google_javascript %>
 
-<%= google_map :width => 300, :height => 150 %>
+<%= google_map :width => 450, :height => 450 %>
 <%= get_map @user.latitude, @user.longitude %>
 
 

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   
   before_save :geolocate
-  
+  # R_0be80a3f0fbd12ff3422bd38a9584b92
   protected
   
   def geolocate

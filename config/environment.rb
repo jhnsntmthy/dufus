@@ -31,10 +31,12 @@ Rails::Initializer.run do |config|
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
+  
   config.gem "rack-oauth"
   config.gem "authlogic"
   config.gem 'master_may_i'
   config.gem 'searchlogic'
+  config.gem "bitly"
   config.gem 'geokit'
   config.gem 'haml'
   config.gem 'newrelic_rpm'

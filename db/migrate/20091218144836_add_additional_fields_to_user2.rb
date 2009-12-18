@@ -1,8 +1,8 @@
 class AddAdditionalFieldsToUser2 < ActiveRecord::Migration
   def self.up
     add_column :users, :last_location, :string
-    add_column :users, :last_latitude, :string
-    add_column :users, :last_longitude, :string
+    add_column :users, :last_latitude, :decimal
+    add_column :users, :last_longitude, :decimal
   end
 
   def self.down

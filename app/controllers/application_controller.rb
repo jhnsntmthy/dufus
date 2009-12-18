@@ -12,6 +12,19 @@ class ApplicationController < ActionController::Base
   
   
   private
+    helper_method :logged_into_twitter?
+    def logged_into_twitter?
+      logger.debug get_access_token.token
+      logger.debug get_access_token.secret
+      get_access_token.present?
+    end
+
+    helper_method :current_twitter_user
+    def current_twitter_user
+      nil
+    end
+
+    
     def current_user_session
       return @current_user_session if defined?(@current_user_session)
       @current_user_session = UserSession.find

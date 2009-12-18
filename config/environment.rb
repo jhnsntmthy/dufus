@@ -19,8 +19,10 @@ Rails::Initializer.run do |config|
   config.gem "rack-oauth"
 
   require 'rack-oauth'
-  config.middleware.use Rack::OAuth, :site => 'http://twitterr.com',
-                                     :key => '123', :secret => '123'
+  config.middleware.use Rack::OAuth, :site => 'http://twitter.com',
+                                     :key => 'TQhTZL7aABTGkS2kYuO0Q', 
+                                     :secret => 'ZtCsgcIrWYVDhWNmPTqjbS4Rg8UjR2t14KPt1vuySs',
+                                     :redirect => "/twitter_auth/complete"
 
   # Skip frameworks you're not going to use. To use Rails without a database
   # you must remove the Active Record framework.
@@ -39,7 +41,7 @@ Rails::Initializer.run do |config|
   config.gem "bitly"
   config.gem 'geokit'
   config.gem 'haml'
-  config.gem 'newrelic_rpm'
+  # config.gem 'newrelic_rpm'
   config.gem 'expose_model'
   config.gem 'will_paginate'
   config.gem 'health_monitor', :source => "http://gemcutter.org"

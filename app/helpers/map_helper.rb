@@ -1,3 +1,5 @@
+require "geokit"
+
 module MapHelper
   
   def init_map
@@ -9,6 +11,23 @@ module MapHelper
       map.click do |script, location|
         map.open_info_window(:location => location, :html => 'hello cape town!')
       end
+    end
+  end
+  
+  def harrisonburg_map
+    run_map_script do
+      hburg = Geokit::Geocoders::YahooGeocoder.geocode "Harrisonburg, VA"
+      map = Google::Map.new(:controls => [:large_map_3D, :map_type], :zoom => 16,
+                            :center => {:latitude => hburg.lat, :longitude => hburg.lng},
+                            :zoom => 12)
+
+      map.click do |script, location|
+        # new_location = Google::Location.new(:latitude => 18, :longitude => 34, :zoom => 2)
+        map.pan_to location # Outputs => 'map.panTo(new GLatLng(18, 34));'
+        
+        # map.open_info_window(:location => location, :html => 'sup, burger-town?')
+      end
+      
     end
   end
   

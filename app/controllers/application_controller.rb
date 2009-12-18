@@ -2,13 +2,13 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  include Rack::OAuth::Methods
+
   helper :all
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user, :oauth_login_path
   filter_parameter_logging :password, :password_confirmation
   
-  include Rack::OAuth::Methods
   
-  helper_methods :oauth_login_path
   
   
   private

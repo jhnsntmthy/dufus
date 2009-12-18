@@ -4,7 +4,8 @@ require "bitly"
 class User < ActiveRecord::Base
   acts_as_authentic
   
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }
+  has_many :posts
   
   before_save :geolocate
   # R_0be80a3f0fbd12ff3422bd38a9584b92

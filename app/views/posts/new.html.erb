@@ -1,0 +1,31 @@
+<h1>New post</h1>
+
+<% form_for @post, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :message %><br />
+    <%= f.text_area :message %>
+  </p>
+  <p>
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </p>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :in_reply_to %>
+  <p>
+    <%= f.label :tweet_this %><br />
+    <%= f.check_box :tweet_this %>
+  </p>
+	<p>Image:<br />
+	Upload an image: <%= f.file_field :image %></p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', posts_path %>

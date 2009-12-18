@@ -71,8 +71,8 @@ module Geokit
     @@proxy_user = nil
     @@proxy_pass = nil
     @@request_timeout = nil    
-    @@yahoo = 'REPLACE_WITH_YOUR_YAHOO_KEY'
-    @@google = 'REPLACE_WITH_YOUR_GOOGLE_KEY'
+    @@yahoo = 'oJTczEfV34GC_TtxBaJIGMxhNCXsI3lrIfx.6V_kF0mUTPigqCLiCOaxxzW6vEuGFg--'
+    @@google = 'ABQIAAAA8U5rsnlRrtQHAp3dBmrdfRTJQa0g3IQ9GZqIMmInSLzwtGDKaBTLlYGbP0X-LAEz_1-9rI9kL_Z0ZQ'
     @@geocoder_us = false
     @@geocoder_ca = false
     @@geonames = false

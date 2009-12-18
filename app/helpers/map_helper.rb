@@ -31,4 +31,11 @@ module MapHelper
     end
   end
   
+  def get_map(lat, lng)
+    run_map_script do    
+      map = Google::Map.new(:controls => [:simple_map, :map_type],
+                            :center => {:latitude => lat, :longitude => lng},
+                            :zoom => 12)
+    end
+  end
 end

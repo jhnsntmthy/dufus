@@ -14,8 +14,6 @@ class ApplicationController < ActionController::Base
   private
     helper_method :logged_into_twitter?
     def logged_into_twitter?
-      logger.debug get_access_token.token if get_access_token.present?
-      logger.debug get_access_token.secret if get_access_token.present?
       get_access_token.present?
     end
 

@@ -4,8 +4,8 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.text :message
       t.string :location
-      t.decimal :latitude
-      t.decimal :longitude
+      t.decimal :latitude, :limit => 13, :precision => 13, :scale => 10
+      t.decimal :longitude, :limit => 13, :precision => 13, :scale => 10
       t.integer :user_id
       t.boolean :tweet_this
       t.integer :in_reply_to

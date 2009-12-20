@@ -3,8 +3,8 @@ class CreateTweets < ActiveRecord::Migration
     create_table :tweets do |t|
       t.string :message
       t.string :location
-      t.decimal :latitude
-      t.decimal :longitude
+      t.decimal :latitude, :limit => 13, :precision => 13, :scale => 10
+      t.decimal :longitude, :limit => 13, :precision => 13, :scale => 10
       t.integer :twitter_status_id
       t.integer :in_reply_to_user_id
       t.string :in_reply_to_screen_name

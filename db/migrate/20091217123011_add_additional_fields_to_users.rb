@@ -2,8 +2,8 @@ class AddAdditionalFieldsToUsers < ActiveRecord::Migration
   def self.up
     add_column :users, :name, :string
     add_column :users, :location, :string
-    add_column :users, :longitude, :decimal
-    add_column :users, :latitude, :decimal
+    add_column :users, :longitude, :decimal, :limit => 13, :precision => 13, :scale => 10
+    add_column :users, :latitude, :decimal, :limit => 13, :precision => 13, :scale => 10
     add_column :users, :avatar_file_name, :string
     add_column :users, :avatar_content_type, :string
     add_column :users, :avatar_file_size, :integer

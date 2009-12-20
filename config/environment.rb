@@ -35,6 +35,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   
   config.gem 'gravtastic', :version => '>= 2.1.0'
+  config.gem "oauth"
   config.gem "twitter"
   config.gem "httparty"
   config.gem "authlogic"

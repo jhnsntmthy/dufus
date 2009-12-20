@@ -3,7 +3,7 @@
 <% form_for @user, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
 <p>Your current avatar:<br />
-<%= image_tag @user.avatar.url(:medium) %><br />
+<%= image_tag @user.user_pic_url(:medium) %><br />
 <br />
 	Change this avatar: <%= f.file_field :avatar %></p>
   <%= render :partial => "form", :object => f %>

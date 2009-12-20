@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    @user.twit_id = current_twitter_user.id if current_twitter_user
+    @user.twit_id = current_twitter_user.id if get_access_token && current_twitter_user
     if @user.save
       flash[:notice] = "Account registered!"
       redirect_back_or_default account_url

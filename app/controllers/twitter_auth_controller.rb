@@ -46,6 +46,6 @@ class TwitterAuthController < ApplicationController
       t = JSON.parse(get_access_token.get('/account/verify_credentials.json').body)
       logger.debug "T KEYS ------------"
       logger.debug t.keys.inspect
-      @twit = Twit.create({:name => t["name"], :screen_name => t["screen_name"], :oauth_token => get_access_token.token, :oauth_token_secret => get_access_token.secret, :twitter_user_id => get_access_token.params["user_id"] })
+      @twit = Twit.create({:name => t["name"], :screen_name => t["screen_name"], :profile_image_url => t["profile_image_url"], :profile_image_url => t["profile_image_url"], :oauth_token => get_access_token.token, :oauth_token_secret => get_access_token.secret, :twitter_user_id => get_access_token.params["user_id"] })
     end
 end

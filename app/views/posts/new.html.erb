@@ -17,10 +17,12 @@
   </p>
   <%= f.hidden_field :user_id %>
   <%= f.hidden_field :in_reply_to %>
+	<% if current_user.twit_id %>
   <p>
     <%= f.label :tweet_this %><br />
     <%= f.check_box :tweet_this %>
   </p>
+	<% end %>
 	<p>Image:<br />
 	Upload an image: <%= f.file_field :image %></p>
   <p>

@@ -36,6 +36,7 @@ Rails::Initializer.run do |config|
   
   config.gem 'gravtastic', :version => '>= 2.1.0'
   config.gem "oauth"
+  config.gem "ruby-hmac"
   config.gem "twitter"
   config.gem "httparty"
   config.gem "authlogic"

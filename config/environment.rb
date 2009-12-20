@@ -45,7 +45,7 @@ Rails::Initializer.run do |config|
   config.gem 'geokit'
   config.gem 'haml'
   config.gem "ruby-hmac"
-  
+  config.gem "hashie"
   # config.gem 'newrelic_rpm'
   config.gem 'expose_model'
   config.gem 'will_paginate'

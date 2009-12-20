@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   
   def geolocate
     if self.location && self.location_changed?
-      geo = Geokit::Geocoders::YahooGeocoder.geocode self.location
+      geo = Geokit::Geocoders::GoogleGeocoder.geocode self.location
       logger.debug geo
       self.latitude = geo.lat
       self.longitude = geo.lng

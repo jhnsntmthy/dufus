@@ -3,8 +3,8 @@
 # corresponds to your current domain it will honored over environment keys.
 
 development:
- ABQIAAAA8U5rsnlRrtQHAp3dBmrdfRTJQa0g3IQ9GZqIMmInSLzwtGDKaBTLlYGbP0X-LAEz_1-9rI9kL_Z0ZQ
+  ABQIAAAA8U5rsnlRrtQHAp3dBmrdfRTJQa0g3IQ9GZqIMmInSLzwtGDKaBTLlYGbP0X-LAEz_1-9rI9kL_Z0ZQ
 test:
- ABQIAAAA8U5rsnlRrtQHAp3dBmrdfRTJQa0g3IQ9GZqIMmInSLzwtGDKaBTLlYGbP0X-LAEz_1-9rI9kL_Z0ZQ
+  ABQIAAAA8U5rsnlRrtQHAp3dBmrdfRTJQa0g3IQ9GZqIMmInSLzwtGDKaBTLlYGbP0X-LAEz_1-9rI9kL_Z0ZQ
 production:
-  put_your_production_key_here
+  ABQIAAAA8U5rsnlRrtQHAp3dBmrdfRSADy5X9YFB5O0PAdj4miOvmUm3-RShq-maHNyWt8C7179G33R4kIxqmQ

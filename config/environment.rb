@@ -34,7 +34,7 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
   
-  config.gem "rack-oauth"
+  config.gem 'gravtastic', :version => '>= 2.1.0'
   config.gem "authlogic"
   config.gem 'master_may_i'
   config.gem 'searchlogic'

@@ -18,16 +18,21 @@
 
 <% if !current_user %>
   <%= link_to "Register", new_account_path %> |
-  <%= link_to "Log In", new_user_session_path %> |
+  <%= link_to "Log In", new_user_session_path %> 
 <% else %>
   <%= link_to "My Account", account_path %> |
   <%= link_to 'Edit', edit_account_path %> |
-  <%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %> |
+  <%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %> 
 <% end %>
-<% if !logged_into_twitter? %>
-	<%= link_to "Sign In with Twitter", oauth_login_path %> 
-<% else %>
-	<%= link_to "Sign Out of Twitter", "/user_session/logout_twitter" %>
+<% if current_user && current_user.twit_id.nil? %>
+	| <%= link_to "Connect this account to Twitter", oauth_login_path %> 
+<% end %>
+<% if !current_user && !logged_into_twitter? %>
+	| <%= link_to "Sign in via Twitter", oauth_login_path %>
+<% end %>
+<% if !current_user && logged_into_twitter? %>
+	| <%= link_to "Upgrade to an Account", new_account_path %>
+	| <%= link_to "Sign Out of Twitter", "/user_session/logout_twitter" %>
 <% end %>
 
 <p style="color: green"><%= flash[:notice] %></p>

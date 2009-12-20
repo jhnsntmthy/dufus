@@ -1,1 +1,17 @@
-hello
+<% case @scenario
+	 when "twitter_only_account_logged_in_again" %>
+		
+	<h1>Welcome back from Twitter!</h1>
+	<p>Nothing has changed in your account settings. If you would like to <b>upgrade</b> your account to a full-fledged one, you can click the link at the top.</p>
+		
+<% when "successfully_created_twitter_only_account" %>
+
+	<h1>Thanks for signing in via Twitter</h1>
+	<p>Now you will be able to see your Twitter posts on this site. If you would like to <b>upgrade</b> your account to a full-fledged one, you can click the link at the top.</p>
+
+<% when "user_account_linked_to_twitter" %>
+
+	<h1>Thanks for linking your Twitter account to this one</h1>
+	<p>Now you will be able to send your new posts created on this site to twitter directly. Go to <%= link_to "CREATE A NEW POST", new_post_url %> to get started.</p>
+
+<% end %>

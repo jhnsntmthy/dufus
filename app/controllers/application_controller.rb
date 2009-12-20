@@ -19,7 +19,9 @@ class ApplicationController < ActionController::Base
 
     helper_method :current_twitter_user
     def current_twitter_user
-      nil
+      @twit = current_user.twit if current_user
+      @twit = Twit.find_by_twitter_user_id(get_access_token.params["user_id"]) if @twit.nil?
+      @twit
     end
 
     

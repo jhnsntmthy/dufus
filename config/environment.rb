@@ -9,6 +9,13 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
+if RAILS_ENV == "production"
+  $TWITTER_TOKEN = "t5Yn8F5cPKdiPCAiJWnECw"
+  $TWITTER_SECRET = "WmsF3rzsZ8LFaZvQcUJWgeoSjbdEpQZoDMJxGuiM"
+else 
+  $TWITTER_TOKEN = "3BqFrzv3sYtWyMTswUkx1A"
+  $TWITTER_SECRET = "mBkPpC2dVKpFYIINHHZEl3Gl66uQTqnP6Y2lx5Tsw"
+end
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
@@ -20,8 +27,8 @@ Rails::Initializer.run do |config|
 
   require 'rack-oauth'
   config.middleware.use Rack::OAuth, :site => 'http://twitter.com',
-                                     :key => '3BqFrzv3sYtWyMTswUkx1A', 
-                                     :secret => 'mBkPpC2dVKpFYIINHHZEl3Gl66uQTqnP6Y2lx5Tsw',
+                                     :key => $TWITTER_TOKEN, 
+                                     :secret => $TWITTER_SECRET,
                                      :redirect => "/twitter_auth/complete"
 
   # Skip frameworks you're not going to use. To use Rails without a database

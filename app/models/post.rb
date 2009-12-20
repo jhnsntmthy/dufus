@@ -23,7 +23,7 @@ class Post < ActiveRecord::Base
   
   def post_to_twitter
     begin
-      oauth = Twitter::OAuth.new("3BqFrzv3sYtWyMTswUkx1A", "mBkPpC2dVKpFYIINHHZEl3Gl66uQTqnP6Y2lx5Tsw")
+      oauth = Twitter::OAuth.new($TWITTER_TOKEN, $TWITTER_SECRET)
       oauth.authorize_from_access(user.twit.oauth_token, user.twit.oauth_token_secret)
       client = Twitter::Base.new(oauth)
       logger.debug client.update(self.title)

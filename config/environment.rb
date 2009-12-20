@@ -44,7 +44,6 @@ Rails::Initializer.run do |config|
   config.gem "bitly"
   config.gem 'geokit'
   config.gem 'haml'
-  config.gem "ruby-hmac"
   config.gem "hashie"
   config.gem "crack"
   # config.gem 'newrelic_rpm'

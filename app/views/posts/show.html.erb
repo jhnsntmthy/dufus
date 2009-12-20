@@ -22,4 +22,9 @@
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %> | <%= link_to "Reply to this post", reply_to_post_url(@post) %>
+<%= link_to 'View all my posts', posts_path %> | <%= link_to "Reply to this post", reply_to_post_url(@post) %>
+
+
+<% if @post.tweet_this %>
+<pre><%= @post.twitter_response %></pre>
+<% end %>

@@ -20,8 +20,8 @@ Rails::Initializer.run do |config|
 
   require 'rack-oauth'
   config.middleware.use Rack::OAuth, :site => 'http://twitter.com',
-                                     :key => 'TQhTZL7aABTGkS2kYuO0Q', 
-                                     :secret => 'ZtCsgcIrWYVDhWNmPTqjbS4Rg8UjR2t14KPt1vuySs',
+                                     :key => '3BqFrzv3sYtWyMTswUkx1A', 
+                                     :secret => 'mBkPpC2dVKpFYIINHHZEl3Gl66uQTqnP6Y2lx5Tsw',
                                      :redirect => "/twitter_auth/complete"
 
   # Skip frameworks you're not going to use. To use Rails without a database

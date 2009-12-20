@@ -17,6 +17,7 @@ Rails::Initializer.run do |config|
   # See Rails::Configuration for more options.
 
   config.gem "rack-oauth"
+  config.gem "ruby-hmac"
 
   require 'rack-oauth'
   config.middleware.use Rack::OAuth, :site => 'http://twitter.com',
@@ -36,7 +37,6 @@ Rails::Initializer.run do |config|
   
   config.gem 'gravtastic', :version => '>= 2.1.0'
   config.gem "oauth"
-  config.gem "ruby-hmac"
   config.gem "twitter"
   config.gem "httparty"
   config.gem "authlogic"

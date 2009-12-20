@@ -1,3 +1,3 @@
 class UserSession < Authlogic::Session::Base
-  attr_accessor :login
+  attr_accessor :login, :password
 end

@@ -46,6 +46,7 @@ Rails::Initializer.run do |config|
   config.gem 'haml'
   config.gem "ruby-hmac"
   config.gem "hashie"
+  config.gem "crack"
   # config.gem 'newrelic_rpm'
   config.gem 'expose_model'
   config.gem 'will_paginate'

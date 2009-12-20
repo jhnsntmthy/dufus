@@ -3,6 +3,8 @@ class Post < ActiveRecord::Base
   has_attached_file :image, :styles => { :medium => "500x300>", :thumb => "100x100#" }
   
   before_save :geolocate
+  
+  after_save :replicate
   # R_0be80a3f0fbd12ff3422bd38a9584b92
   protected
   
@@ -15,4 +17,11 @@ class Post < ActiveRecord::Base
     end
   end
   
+  def replicate
+    post_to_twitter if user.twit_id
+  end
+  
+  def post_to_twitter
+    
+  end
 end

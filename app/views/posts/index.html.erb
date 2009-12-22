@@ -1,4 +1,6 @@
-<h1>Listing posts</h1>
+<h1>Listing posts for:</h1> 
+<%= image_tag @current_user.user_pic_url(:thumb) %>
+<h2><%= current_user.name %></h2>
 
 <table>
   <tr>
@@ -19,6 +21,7 @@
 
 <br />
 
+<h2>My Current Location:</h2>
 <%= include_google_javascript %>
 <%= google_map :width => 450, :height => 450 %>
 <%= all_posts_map @current_user.latitude, @current_user.longitude %>

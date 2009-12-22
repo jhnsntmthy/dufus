@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :account, :controller => "users"
   map.resources :users
+  map.resources :posts
   map.resource :user_session, :member => [:logout_twitter]
   map.root :controller => "user_sessions", :action => "new"
   map.connect ':controller/:action/:id'

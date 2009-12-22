@@ -10,16 +10,15 @@
   <%= simple_format @post.message %>
 </p>
 
-
-
-
-
-
-
-
-
 <p><%= image_tag @post.image.url if @post.image %>
 </p>
+
+
+<%= include_google_javascript %>
+
+<%= google_map :width => 450, :height => 450 %>
+<%= get_map @post.latitude, @post.longitude %>
+
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'View all my posts', posts_path %> | <%= link_to "Reply to this post", reply_to_post_url(@post) %>

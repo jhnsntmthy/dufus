@@ -44,7 +44,7 @@ Rails::Initializer.run do |config|
   config.gem 'gravtastic', :version => '>= 2.1.0'
   config.gem "oauth"
   config.gem "twitter"
-  config.gem "httparty"
+  config.gem 'httparty', :version => '>= 0.5.0'
   config.gem "authlogic"
   config.gem 'master_may_i'
   config.gem 'searchlogic'

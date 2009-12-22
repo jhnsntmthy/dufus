@@ -20,22 +20,42 @@ module MapHelper
       map = Google::Map.new(:controls => [:large_map_3D, :map_type], :zoom => 16,
                             :center => {:latitude => hburg.lat, :longitude => hburg.lng},
                             :zoom => 12)
-
+      
+      
       map.click do |script, location|
         # new_location = Google::Location.new(:latitude => 18, :longitude => 34, :zoom => 2)
         map.pan_to location # Outputs => 'map.panTo(new GLatLng(18, 34));'
         
         # map.open_info_window(:location => location, :html => 'sup, burger-town?')
+        
       end
       
     end
   end
+  
   
   def get_map(lat, lng)
     run_map_script do    
       map = Google::Map.new(:controls => [:large_map, :map_type],
                             :center => {:latitude => lat, :longitude => lng},
                             :zoom => 12)
+      markers = [[lat, lng]].collect do |location|
+                   map.add_marker :location => location
+      end             
     end
   end
+  
+  def all_posts_map(latitude, longitude)
+    run_map_script do
+      map = Google::Map.new(:controls => [:large_map, :map_type],
+                            :center => {:latitude => latitude, :longitude => longitude},
+                            :zoom => 7)
+      :post_marker
+      markers = [[latitude, longitude]].collect do |location|
+                map.add_marker :location =>location
+      end
+        
+    end
+  end
+  
 end

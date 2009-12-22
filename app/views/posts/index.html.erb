@@ -19,4 +19,8 @@
 
 <br />
 
+<%= include_google_javascript %>
+<%= google_map :width => 450, :height => 450 %>
+<%= all_posts_map @current_user.latitude, @current_user.longitude %>
+
 <%= link_to 'New post', new_post_path %>

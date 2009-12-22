@@ -94,4 +94,12 @@ class PostsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def post_marker
+    post.for_each do
+      post.latitude = @latitude
+      post.longitude = @longitude
+    end
+  end
+  
 end

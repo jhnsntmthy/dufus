@@ -45,7 +45,7 @@ module MapHelper
     end
   end
   
-  def all_posts_map(latitude, longitude, posts)
+  def all_posts_map(latitude, longitude, posts, user)
     run_map_script do
       map = Google::Map.new(:controls => [:large_map, :map_type],
                             :center => {:latitude => latitude, :longitude => longitude},
@@ -54,11 +54,11 @@ module MapHelper
       # markers = [[latitude, longitude]].collect do |location|
       #           map.add_marker :location => location
       # end
-      map.add_marker (:location => [latitude, longitude], :icon => @current_user.user_pic_url)
+      map.add_marker (:location => [latitude, longitude], :icon => user.user_pic_url)
       for post in posts
         marker = map.add_marker (:location => [post.latitude, post.longitude]) #:icon => :blue_circle)
         marker.click do |script|
-          marker.open_info_window :html => '<img src="'+ @current_user.user_pic_url + '" width="30" height="30" style="float:left; margin-right: 10px;" align="top" /><b style="float:left">' + post.title + '</b>'
+          marker.open_info_window :html => '<img src="'+ user.user_pic_url + '" width="30" height="30" style="float:left; margin-right: 10px;" align="top" /><b style="float:left">' + post.title + '</b>'
           marker.circle!
         end                 
       end

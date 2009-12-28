@@ -53,6 +53,8 @@ Rails::Initializer.run do |config|
   config.gem 'haml'
   config.gem "hashie"
   config.gem "crack"
+  config.gem "faker"
+  config.gem "populator"
   # config.gem 'newrelic_rpm'
   config.gem 'expose_model'
   config.gem 'will_paginate'

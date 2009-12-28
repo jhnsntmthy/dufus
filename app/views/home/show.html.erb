@@ -1,0 +1,21 @@
+<%= image_tag @user.user_pic_url(:thumb) %>
+
+<p>
+  <b>Login:</b>
+  <%=h @user.login %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%=h @user.location %>
+</p>
+<p>
+	<b>Biography:</b>
+  <%= h @user.biography %>
+</p>
+<p>
+<%= include_google_javascript %>
+current_building.insulation_main_labor
+<%= google_map :width => 450, :height => 450 %>
+<%= get_map @user.latitude, @user.longitude %>
+

@@ -1,0 +1,26 @@
+<h1>Listing posts for:</h1> 
+<%= image_tag @user.user_pic_url(:thumb) %>
+<h2><%= @user.name %></h2>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Tweet this</th>
+  </tr>
+
+<% @user.posts.each do |post| %>
+  <tr>
+    <td><%=h post.title %></td>
+    <td><%=h post.twitter_response %></td>
+    <td><%= link_to 'Show', post %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<h2>My Current Location:</h2>
+<%= include_google_javascript %>
+<%= google_map :width => 450, :height => 450 %>
+<%= all_posts_map @user.latitude, @user.longitude, @user.posts, @user %>
+
